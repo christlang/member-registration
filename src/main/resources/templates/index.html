@@ -1,9 +1,47 @@
-<html>
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
 <head>
-    <title>Registration</title>
+    <title>Aufnahmeantrag</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-
-<h1>Hello world</h1>
+<h1>Antrag</h1>
+<form action="#" th:action="@{/registration}" th:object="${registration}" method="post">
+    <p>Vorname: <input type="text" th:field="*{firstName}" /></p>
+    <p>Nachname: <input type="text" th:field="*{lastName}" /></p>
+    <p>Geschlecht:
+        <select id="gender" name="gender" th:field="*{gender}">
+            <option th:each="opt : ${availableGender}" th:value="${opt}" th:text="${opt.displayValue}"></option>
+        </select>
+    </p>
+    <p>Staatsangehörigkeit:
+        <select id="country" name="country">
+            <option th:each="opt : ${availableCountries}"
+                    th:value="${opt}"
+                    th:text="${opt}"
+                    th:selected="${opt == defaultCountry}">
+            </option>
+        </select>
+    </p>
+    <label for="birthDate">Geburtsdatum:</label>
+    <input type="date" id="birthDate" name="birthDate" th:field="*{dateOfBirth}">
+    <p>Telefon: <input type="text" th:field="*{telephone}" /></p>
+    <p>Straße: <input type="text" th:field="*{street}" /></p>
+    <p>Hausnummer: <input type="text" th:field="*{houseNr}" /></p>
+    <p>PLZ: <input type="number" th:field="*{plz}" /></p>
+    <p>Ort: <input type="text" th:field="*{city}" /></p>
+    <p>E-Mail: <input type="email" th:field="*{email}" /></p>
+    <p>Abteilung:
+        <select id="department" name="department" th:field="*{department}">
+            <option th:each="opt : ${availableDepartments}" th:value="${opt}" th:text="${opt.displayValue}"></option>
+        </select>
+    </p>
+    <p>Status:
+        <select id="state" name="state" th:field="*{state}">
+            <option th:each="opt : ${availableStates}" th:value="${opt}" th:text="${opt.displayValue}"></option>
+        </select>
+    </p>
+    <p><input type="submit" value="Absenden" /> <input type="reset" value="Zurücksetzen" /></p>
+</form>
 </body>
 </html>

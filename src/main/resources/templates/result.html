@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Aufnahmeantrag</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Result</h1>
+<p th:text="'Vorname: ' + ${registration.firstName()}" />
+<p th:text="'Nachname: ' + ${registration.lastName()}" />
+<p th:text="'Geschlecht: ' + ${registration.gender().displayValue}" />
+<p th:text="'Staatsangehörigkeit: ' + ${registration.country()}" />
+<p th:text="'Geburtsdatum: ' + ${#dates.format(registration.dateOfBirth(), 'dd.MM.yyyy')}" />
+<p th:text="'Telefon: ' + ${registration.telephone()}" />
+<p th:text="'Straße: ' + ${registration.street()}" />
+<p th:text="'Hausnummer: ' + ${registration.houseNr()}" />
+<p th:text="'PLZ: ' + ${registration.plz()}" />
+<p th:text="'Ort: ' + ${registration.city()}" />
+<p th:text="'E-Mail: ' + ${registration.email()}" />
+<p th:text="'Abteilung: ' + ${registration.department().displayValue}" />
+<p th:text="'Status: ' + ${registration.state().displayValue}" />
+<a href="/">Weitere Aufnahme</a>
+</body>
+</html>
