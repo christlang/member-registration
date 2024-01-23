@@ -5,6 +5,7 @@ public record Sepa(
 
         String iban,
         String bic,
-        AnnualFeeInterface annualFee
+        AnnualFee annualFee,
+        AnnualFeeTennis annualFeeTennis
 ) {
 }

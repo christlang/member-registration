@@ -13,12 +13,23 @@
     <p>Hausnummer: <input type="text" th:field="*{address.houseNr}" /></p>
     <p>PLZ: <input type="number" th:field="*{address.plz}" /></p>
     <p>Ort: <input type="text" th:field="*{address.city}" /></p>
-    <p>Jahresbeitrag:
+    <p>IBAN: <input type="text" th:field="*{iban}" /></p>
+    <p>BIC: <input type="text" th:field="*{bic}" /></p>
+    <p th:unless="${showTennisFee}">Jahresbeitrag:
         <select id="annualFee" name="annualFee">
             <option th:each="opt : ${availableAnnualFees}"
                     th:value="${opt}"
                     th:text="${opt.price + ' Euro ' + opt.displayValue}"
                     th:selected="${opt == defaultFee}">
+            </option>
+        </select>
+    </p>
+    <p th:if="${showTennisFee}">Jahresbeitrag Tennis:
+        <select id="annualFeeTennis" name="annualFeeTennis">
+            <option th:each="opt : ${availableAnnualFeesTennis}"
+                    th:value="${opt}"
+                    th:text="${opt.price + ' Euro ' + opt.displayValue}"
+                    th:selected="${opt == defaultFeeTennis}">
             </option>
         </select>
     </p>

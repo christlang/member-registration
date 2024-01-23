@@ -1,6 +1,6 @@
 package de.cutl.djk.memberregistration;
 
-public enum AnnualFee implements AnnualFeeInterface {
+public enum AnnualFee {
 
     ACTIVE_CHILDREN(72, "Kinder und Jugendliche bis 18 Jahre"),
     ACTIVE_STUDENTS( 84, "Studenten, Schüler, Azubis über 18 Jahren"),
@@ -10,21 +10,11 @@ public enum AnnualFee implements AnnualFeeInterface {
     PASSIVE_ADULT( 62, "Erwachsene passive Mitglieder "),
     PASSIVE_FAMILY( 92, "Familienbeitrag passive Mitglieder");
 
-    final long price;
-    final String displayText;
+    public final long price;
+    public final String displayValue;
 
-    AnnualFee(long price, String displayText) {
+    AnnualFee(long price, String displayValue) {
         this.price = price;
-        this.displayText = displayText;
-    }
-
-    @Override
-    public long getPrice() {
-        return price;
-    }
-
-    @Override
-    public String getDisplayValue() {
-        return displayText;
+        this.displayValue = displayValue;
     }
 }

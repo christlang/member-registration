@@ -19,6 +19,6 @@
 <p th:text="'E-Mail: ' + ${registration.email()}" />
 <p th:text="'Abteilung: ' + ${registration.department().displayValue}" />
 <p th:text="'Status: ' + ${registration.state().displayValue}" />
-<a href="/">Weitere Aufnahme</a>
+<a th:href="@{'/sepa?id=' + ${id}}">Weiter zu Sepa</a>
 </body>
 </html>

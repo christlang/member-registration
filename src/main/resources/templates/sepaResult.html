@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Aufnahmeantrag</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Result</h1>
+<p th:text="'Vorname: ' + ${sepa.address().firstName()}" />
+<p th:text="'Nachname: ' + ${sepa.address().lastName()}" />
+<p th:text="'Straße: ' + ${sepa.address().street()}" />
+<p th:text="'Hausnummer: ' + ${sepa.address().houseNr()}" />
+<p th:text="'PLZ: ' + ${sepa.address().plz()}" />
+<p th:text="'Ort: ' + ${sepa.address().city()}" />
+<p th:text="'IBAN: ' + ${sepa.iban()}" />
+<p th:text="'BIC: ' + ${sepa.bic()}" />
+<a href="/sepa">Dokumente unterschreiben</a>
+</body>
+</html>

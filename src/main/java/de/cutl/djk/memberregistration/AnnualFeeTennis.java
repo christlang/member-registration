@@ -1,6 +1,6 @@
 package de.cutl.djk.memberregistration;
 
-public enum AnnualFeeTennis implements AnnualFeeInterface {
+public enum AnnualFeeTennis {
 
     CHILDREN( 98, "Kinder und Jugendliche bis 18 Jahre"),
     STUDENTS( 156, "Studenten, Schüler, Azubis über 18 Jahren"),
@@ -12,22 +12,11 @@ public enum AnnualFeeTennis implements AnnualFeeInterface {
     WORK_DUTY_SINGLE( 30, "Arbeitsdienst - je Person über 18 Jahre"),
     WORK_DUTY_COUPLE_BOTH_TENNIS( 30, "Arbeitsdienst - Ehepaare (beide Tennis)");
 
-    final long price;
-    final String displayText;
+    public final long price;
+    public final String displayValue;
 
-    AnnualFeeTennis(long price, String displayText) {
+    AnnualFeeTennis(long price, String displayValue) {
         this.price = price;
-        this.displayText = displayText;
+        this.displayValue = displayValue;
     }
-
-    @Override
-    public long getPrice() {
-        return price;
-    }
-
-    @Override
-    public String getDisplayValue() {
-        return displayText;
-    }
-
 }
