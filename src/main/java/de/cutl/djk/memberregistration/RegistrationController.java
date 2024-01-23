@@ -14,8 +14,9 @@ import java.util.Locale;
 @Controller
 public class RegistrationController {
     @GetMapping("/")
-    public String greetingForm(Model model) {
-        model.addAttribute("registration", new Registration("", "", null, "", null, "", "", "", null, "", "", null, null));
+    public String registrationForm(Model model) {
+        Address address = new Address("", "", "", "", null, "");
+        model.addAttribute("registration", new Registration( null, "", null, "", address, "", null, null));
         model.addAttribute("availableGender", Gender.values());
         model.addAttribute("availableCountries", getAvailableCountries());
         model.addAttribute("defaultCountry", "Deutschland");
@@ -25,7 +26,22 @@ public class RegistrationController {
     }
 
     @PostMapping("/registration")
-    public String greetingSubmit(@ModelAttribute Registration registration, Model model) {
+    public String registrationSubmit(@ModelAttribute Registration registration, Model model) {
+        model.addAttribute("registration", registration);
+        return "result";
+    }
+
+    @GetMapping("/sepa")
+    public String sepaForm(Model model) {
+        Address address = new Address("", "", "", "", null, "");
+        model.addAttribute("sepa", new Sepa( address, "", null, null));
+        model.addAttribute("availableAnnualFees", AnnualFee.values());
+        model.addAttribute("defaultFee", AnnualFee.ACTIVE_ADULT);
+        return "sepa";
+    }
+
+    @PostMapping("/sepa")
+    public String sepaSubmit(@ModelAttribute Registration registration, Model model) {
         model.addAttribute("registration", registration);
         return "result";
     }

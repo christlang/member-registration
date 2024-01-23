@@ -1,8 +1,6 @@
 package de.cutl.djk.memberregistration;
 
 public enum Department {
-
-
     BASKETBALL("Basketball"),
     FLOORBALL("Floorball"),
     FUSSBALL("Fußball"),

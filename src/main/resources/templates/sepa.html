@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Aufnahmeantrag</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Antrag</h1>
+<form action="#" th:action="@{/sepa}" th:object="${sepa}" method="post">
+    <p>Vorname: <input type="text" th:field="*{address.firstName}" /></p>
+    <p>Nachname: <input type="text" th:field="*{address.lastName}" /></p>
+    <p>Straße: <input type="text" th:field="*{address.street}" /></p>
+    <p>Hausnummer: <input type="text" th:field="*{address.houseNr}" /></p>
+    <p>PLZ: <input type="number" th:field="*{address.plz}" /></p>
+    <p>Ort: <input type="text" th:field="*{address.city}" /></p>
+    <p>Jahresbeitrag:
+        <select id="annualFee" name="annualFee">
+            <option th:each="opt : ${availableAnnualFees}"
+                    th:value="${opt}"
+                    th:text="${opt.price + ' Euro ' + opt.displayValue}"
+                    th:selected="${opt == defaultFee}">
+            </option>
+        </select>
+    </p>
+    <p><input type="submit" value="Absenden" /> <input type="reset" value="Zurücksetzen" /></p>
+</form>
+</body>
+</html>
